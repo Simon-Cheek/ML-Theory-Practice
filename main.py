@@ -1,7 +1,7 @@
 from GradDescent import LinearRegression
 
 def main():
-    LinearRegression.linear_regression("data/data1.csv", show_plot=True)
+    print(LinearRegression.linear_regression_multivariate("data/data1.csv"))
 
 if __name__ == "__main__":
     main()
