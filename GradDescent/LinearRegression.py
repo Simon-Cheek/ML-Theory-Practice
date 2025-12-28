@@ -54,10 +54,10 @@ def linear_regression(csv, show_plot = False):
 
     return slope, intercept
 
-def predict_multivariate(X, W, b):
+def predict_multiple_inputs(X, W, b):
     return np.dot(X, W) + b
 
-def linear_regression_multivariate(csv):
+def linear_regression_multiple_inputs(csv):
 
     df = pd.read_csv(csv)
     X = df.iloc[:, :-1].to_numpy() # Now a matrix of input values
