@@ -6,7 +6,7 @@ from sklearn.model_selection import cross_val_predict
 from sklearn.metrics import confusion_matrix, precision_score, recall_score, f1_score, precision_recall_curve
 
 # 70000 images of 28x28 pixels representing drawings of numbers
-mnist = fetch_openml('mnist_784', as_frame=False)
+# mnist = fetch_openml('mnist_784', as_frame=False)
 # X,y = mnist.data, mnist.target
 # np.savez('mnist.npz', X=X, y=y)
 
