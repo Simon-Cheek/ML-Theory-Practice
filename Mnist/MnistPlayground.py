@@ -1,6 +1,6 @@
 from sklearn.datasets import fetch_openml
 import numpy as np
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 from sklearn.linear_model import SGDClassifier
 from sklearn.model_selection import cross_val_predict
 from sklearn.metrics import confusion_matrix, precision_score, recall_score, f1_score, precision_recall_curve
@@ -48,7 +48,15 @@ print(f"SKLEARN: Precision: {precision_sklearn}, Recall: {recall_sklearn}, F1 Sc
 # Examine Precision / Recall Curve
 y_scores = cross_val_predict(sgd_classifier, X_train, y_train_5, cv=3, method='decision_function')
 precisions, recalls, thresholds = precision_recall_curve(y_train_5, y_scores)
-plt.plot(thresholds, precisions[:-1], "b--", label="Precision", linewidth=2)
-plt.plot(thresholds, recalls[:-1], "g-", label="Recall", linewidth=2)
-plt.vlines(thresholds, 0, 1.0, "k", "dotted", label="threshold")
-plt.show()
+# plt.plot(thresholds, precisions[:-1], "b--", label="Precision", linewidth=2)
+# plt.plot(thresholds, recalls[:-1], "g-", label="Recall", linewidth=2)
+# plt.vlines(thresholds, 0, 1.0, "k", "dotted", label="threshold")
+# plt.show()
+
+# Find Correct Threshold for 90% Precision
+precision_90_idx = (precisions > 0.9).argmax()
+threshold_for_90_precision = precisions[precision_90_idx]
+
+# Now Try to Get a Model with 90% Precision
+y_scores_for_90_precision = (y_scores >= threshold_for_90_precision)
+print(y_scores_for_90_precision)
