@@ -70,7 +70,7 @@ def linear_regression_multiple_inputs(csv):
 
     # Compute Gradient
     for i in range(MAX_ITERATIONS):
-        projected_ys = predict_multivariate(X, slopes, intercept)
+        projected_ys = predict_multiple_inputs(X, slopes, intercept)
 
         # Partial Derivative of loss function (MSE) with respect to EACH weight
         slope_gradients = np.zeros(num_of_input_variables)
